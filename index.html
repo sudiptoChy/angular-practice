@@ -3,22 +3,56 @@
 
 <head>
     <meta charset="utf-8">
-    <style>
-        body {
-            font-size: 1.3em;
-        }
-    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="styles/animations.css">
+
     <title>Angular Practice</title>
 </head>
 
 <body>
-    <div ng-view></div>
-   
+    <header>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#/customers">Customers</a>
+                    </li>
+                    <li>
+                        <a href="#/orders">Orders</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="page-header-extended">
+            <h2 class="page-title">Angular Store</h2>
+        </div>
+
+        <div class="starter-template">
+            <main>
+                <div ng-view class="slide-animation"></div>
+            </main>
+        </div>
+
+    </div>
+
+    
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-animate.js"></script>
     <script src="scripts/angular-route.js"></script>
     <script src="app/app.js"></script>
     <script src="app/controllers/CustomerController.js"></script>
     <script src="app/controllers/OrdersController.js"></script>
+    <script src="app/controllers/AllOrdersController.js"></script>
     <script src="app/services/CustomerFactory.js"></script>
     <script src="app/services/CustomerService.js"></script>
     <script src="app/services/values.js"></script>

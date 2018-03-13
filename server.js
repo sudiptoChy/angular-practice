@@ -1,7 +1,7 @@
 var express = require('express'),
     app = express();
 
-app.use(express.static(__dirname, + '/'));
+app.use(express.static(__dirname, +'/'));
 
 app.get('/customers/:id', function (req, res) {
     var customerId = parseInt(req.params.id);
@@ -21,10 +21,53 @@ app.get('/customers', function (req, res) {
     res.json(customers);
 })
 
+app.get('/orders', function (req, res) {
+    res.json(orders);
+})
+
+app.delete('/customers/:id', function (req, res) {
+    var customerId = parseInt(req.params.id);
+    var data = { status: true };
+    for (var i = 0; i < customers.length; i++) {
+        if (customers[i].id == customerId) {
+            customers.splice(i, 1);
+            data = { status: true };
+            break;
+        }
+    }
+    res.json(data);
+});
+
 app.listen(8080);
 
 console.log('Express is listening on port 8080');
 
+var orders = [{
+        id: 1,
+        product: 'Shoes',
+        total: 9.998
+    },
+    {
+        id: 2,
+        product: 'Mobile',
+        total: 10
+    },
+    {
+        id: 3,
+        product: 'Charger',
+        total: 9.99
+    },
+    {
+        id: 4,
+        product: 'Headphones',
+        total: 39.008
+    },
+    {
+        id: 5,
+        product: 'kindle',
+        total: 13.998
+    }
+];
 
 var customers = [{
     id: 1,
