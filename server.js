@@ -1,15 +1,13 @@
 var express = require('express'),
     app = express();
 
-app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 3000);
-app.set('ipaddr', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");
 app.use(express.static(__dirname, + '/'));
 
 app.get('/customers/:id', function (req, res) {
     var customerId = parseInt(req.params.id);
     var data = {};
 
-    for (var i = 0; i < customers.len; i++) {
+    for (var i = 0; i < customers.length; i++) {
         if (customers[i].id == customerId) {
             data = customers[i];
             break;

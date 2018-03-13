@@ -3,7 +3,13 @@ var OrdersController = function ($scope, $routeParams, CustomerFactory) {
     $scope.customer = null;
 
     function init() {
-        $scope.customer = CustomerFactory.getCustomer(customerId);
+        $scope.customer = CustomerFactory.getCustomer(customerId)
+            .success(function (customer) {
+                $scope.customer = customer;
+            })
+            .error(function (data) {
+                console.log(data);
+            });
     }
 
     init();
